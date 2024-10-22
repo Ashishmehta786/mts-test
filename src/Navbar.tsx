@@ -27,7 +27,7 @@ export default function Navbar() {
               theme === "dark" && "text-dark-foreground"
             )}
           >
-            <span className="flex items-center space-x-2">
+            <span className="flex items-center space-x-2 dark:text-neutral-300">
               <ReloadIcon className="h-6 w-6" />
               <span className="font-bold text-2xl ">Revise</span>
             </span>
