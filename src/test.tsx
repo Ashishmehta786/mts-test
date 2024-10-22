@@ -14,7 +14,7 @@ const Test = () => {
   const [extra, setextra] = useState("");
   let timerStarted=false
   const [timeUp, setTimeUp] = useState(false); // Track if time is up
-
+console.log(timerStarted)
   useEffect(() => {
     const fetchQuizData = async () => {
       let arr = [];
