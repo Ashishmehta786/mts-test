@@ -1,30 +1,15 @@
 import { Button } from "./components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "./components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar";
-import { LogOut, Settings, User } from "lucide-react";
-import { collection, doc, setDoc } from "firebase/firestore";
-import { db } from "./firebase";
 import { ReloadIcon } from "@radix-ui/react-icons";
 import { imgdata } from "./store/const";
-import { useAuth } from "./context/AuthContext";
-import { signOut } from "firebase/auth";
-import { auth } from "./firebase";
 import { cn } from "./lib/utils";
 import { useTheme } from "./components/theme-provider";
 import { ModeToggle } from "./components/mode-toggle";
 
 export default function Navbar() {
   const { theme } = useTheme();
-  const aut = useAuth();
-  const username = aut?.user?.email?.split("@")[0];
-  const image = imgdata[username]?.img;
+
+  const image = imgdata.adeeti?.img;
 
   return (
     <header
