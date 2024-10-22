@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Button } from "./components/ui/button";
 import { Card, CardContent, CardHeader } from "./components/ui/card";
-import { db } from "./firebase";
-import { collection,  getDocs} from "firebase/firestore";
+
 import RadioGroup from "./components/radiogrp";
 import Timer from "./Timer";
+import { quizQuestions } from "./store/const";
 const Test = () => {
   const [questions, setQuestions] = useState<any[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -17,15 +17,12 @@ const Test = () => {
 console.log(timerStarted)
   useEffect(() => {
     const fetchQuizData = async () => {
-      let arr = [];
-      const quizCollection = collection(db, "quizzes");
-      const quizSnapshot = await getDocs(quizCollection);
-      const quizData = quizSnapshot.docs.map((doc) => doc.data());
-      const len = Object.getOwnPropertyNames(quizData[0]).length;
-      for (let i = 0; i < len; i++) {
-        arr.push(quizData[0][`q${i + 1}`]);
-      }
-      setQuestions(arr);
+
+      // const quizCollection = collection(db, "quizzes");
+      // const quizSnapshot = await getDocs(quizCollection);
+      // const quizData = quizSnapshot.docs.map((doc) => doc.data());
+      // const len = Object.getOwnPropertyNames(quizData[0]).length;
+      setQuestions(quizQuestions  );
     };
     fetchQuizData();
   }, []);

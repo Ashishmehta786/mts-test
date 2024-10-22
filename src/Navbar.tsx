@@ -29,7 +29,7 @@ export default function Navbar() {
           >
             <span className="flex items-center space-x-2">
               <ReloadIcon className="h-6 w-6" />
-              <span className="font-bold text-2xl">Revise</span>
+              <span className="font-bold text-2xl ">Revise</span>
             </span>
           </a>
         </div>
