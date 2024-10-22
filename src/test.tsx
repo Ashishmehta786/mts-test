@@ -2,10 +2,9 @@ import { useState, useEffect } from "react";
 import { Button } from "./components/ui/button";
 import { Card, CardContent, CardHeader } from "./components/ui/card";
 import { db } from "./firebase";
-import { collection, doc, getDocs, setDoc } from "firebase/firestore";
-import { Label } from "./components/ui/label";
+import { collection,  getDocs} from "firebase/firestore";
 import RadioGroup from "./components/radiogrp";
-import Timer from "./components/timer";
+import Timer from "./Timer";
 const Test = () => {
   const [questions, setQuestions] = useState<any[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -13,7 +12,7 @@ const Test = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [extra, setextra] = useState("");
-  const [timerStarted, setTimerStarted] = useState(false); // Track if the timer has started
+  let timerStarted=false
   const [timeUp, setTimeUp] = useState(false); // Track if time is up
 
   useEffect(() => {
@@ -38,8 +37,8 @@ const Test = () => {
     setScore(0);
     setSelectedAnswer("");
     setShowResult(false);
-    setTimerStarted(true); // Start the timer
-    setTimeUp(false); // Reset time up state
+    timerStarted=true; 
+    setTimeUp(false); 
   };
 
   const handleTimeUp = () => {
